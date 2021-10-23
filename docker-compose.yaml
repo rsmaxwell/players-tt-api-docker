@@ -10,6 +10,7 @@ services:
     volumes:
       - /home/vagrant/players-tt-api/config:/players-tt-api/config
       - /home/vagrant/players-tt-api/log:/players-tt-api/log
+      - /home/vagrant/players-tt-api/dump:/players-tt-api/dump
     ports:
       - 4201:4201
 
