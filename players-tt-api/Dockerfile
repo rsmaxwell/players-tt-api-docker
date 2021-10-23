@@ -16,16 +16,17 @@ RUN ./downloadArtifact.sh
 RUN rm downloadArtifact.sh
 
 RUN chown -R fred:fred *
-RUN chmod -R 700 /home/fred/bin /home/fred/players-tt-api
-RUN chmod 600 /home/fred/players-tt-api/config/config.json
+RUN chown -R fred:fred /players-tt-api/*
+RUN chmod -R 700 /home/fred/bin /players-tt-api/config
+RUN chmod 600 /players-tt-api/config/config.json
 
 RUN apt-get -y remove wget unzip
-RUN apt-get -y autoremove wget unzip
 RUN apt-get -y purge --auto-remove wget unzip
+RUN apt-get -y autoremove 
 
 USER fred
 ENTRYPOINT ["bash", "-c", \
-    "/home/fred/bin/players-tt-api/players-tt-api", \
+    "/home/fred/bin/players-tt-api", \
     "--config", "/players-tt-api/config", \
     "1>/players-tt-api/log/players-tt-api.log", \
     "2>/players-tt-api/log/players-tt-api.stderr"]
