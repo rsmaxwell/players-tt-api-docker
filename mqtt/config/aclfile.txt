@@ -1,0 +1,9 @@
+# This affects access control for clients with no username.
+topic write request
+
+# This only affects clients with username "admin".
+user admin
+topic read request
+
+# This affects all clients.
+#pattern write reply/%c
