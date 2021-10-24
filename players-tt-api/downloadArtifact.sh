@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x 
-
 ENDPOINT="https://server.rsmaxwell.co.uk/archiva/repository"
 REPOSITORY="releases"
 GROUP="com.rsmaxwell.players"
@@ -28,6 +26,8 @@ fi
 
 version="${BASH_REMATCH[1]}"
 FILENAME="${ARTIFACT}-${version}.zip"
+
+echo "downloading ${FILENAME}"
 
 rm -rf maven-metadata.xml ${ARTIFACT}-*.zip*
 

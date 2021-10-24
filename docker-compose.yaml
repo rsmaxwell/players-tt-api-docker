@@ -5,8 +5,6 @@ services:
     build: ./players-tt-api
     image: players-tt-api
     restart: always
-    env_file:
-      - players-tt-api/players-tt-api.env
     volumes:
       - /home/vagrant/players-tt-api/config:/players-tt-api/config
       - /home/vagrant/players-tt-api/log:/players-tt-api/log
