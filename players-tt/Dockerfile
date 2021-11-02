@@ -7,10 +7,10 @@ RUN apt-get install -y wget unzip
 
 WORKDIR /usr/share/nginx/html
 COPY downloadArtifact.sh  /tmp
-RUN ./downloadArtifact.sh
+RUN /tmp/downloadArtifact.sh
 
 
-RUN rm downloadArtifact.sh
+RUN rm /tmp/downloadArtifact.sh
 RUN apt-get remove -y wget unzip
 
 RUN pwd
