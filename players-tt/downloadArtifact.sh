@@ -43,10 +43,9 @@ if [ ! ${result} == 0 ]; then
     exit 1
 fi
 
-rm -rf bin
-mkdir bin
+ls -al 
 
-unzip ../${FILENAME}
+unzip ${FILENAME}
 result=$?
 if [ ! ${result} == 0 ]; then
     echo "Error: $0[${LINENO}]"
