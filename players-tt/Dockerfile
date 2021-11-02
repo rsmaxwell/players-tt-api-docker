@@ -7,6 +7,7 @@ RUN apt-get install -y wget unzip
 
 WORKDIR /usr/share/nginx/html
 COPY downloadArtifact.sh  /tmp
+RUN rm -rf /usr/share/nginx/html/*
 RUN /tmp/downloadArtifact.sh
 
 
