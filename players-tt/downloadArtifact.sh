@@ -33,7 +33,10 @@ echo "downloading ${FILENAME}"
 
 rm -rf maven-metadata.xml ${ARTIFACT}-*.zip*
 
-ls -al 
+echo "'/tmp' before wget"
+ls -al /tmp
+
+rm -rf /tmp/${FILENAME}
 
 wget --quiet ${BASE}/${version}/${FILENAME}
 result=$?
@@ -43,7 +46,11 @@ if [ ! ${result} == 0 ]; then
     exit 1
 fi
 
-ls -al 
+echo "'/tmp' after wget"
+ls -al /tmp
+
+echo "'/usr/share/nginx/html' after wget"
+ls -al /usr/share/nginx/html
 
 unzip ${FILENAME}
 result=$?
