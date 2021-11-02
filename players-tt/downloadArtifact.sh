@@ -58,4 +58,8 @@ fi
 rm -rf /tmp/${FILENAME}
 
 ls -al /tmp
+pwd
 ls -al 
+
+echo "Success"
+
