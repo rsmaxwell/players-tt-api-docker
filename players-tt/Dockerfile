@@ -13,3 +13,5 @@ RUN ./downloadArtifact.sh
 RUN rm downloadArtifact.sh
 RUN apt-get remove -y wget unzip
 
+RUN pwd
+RUN ls -al 

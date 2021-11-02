@@ -24,12 +24,16 @@ if [[ ! ${line} =~ ${regex} ]]; then
     exit 1
 fi
 
+set -x
+
 version="${BASH_REMATCH[1]}"
 FILENAME="${ARTIFACT}-${version}.zip"
 
 echo "downloading ${FILENAME}"
 
 rm -rf maven-metadata.xml ${ARTIFACT}-*.zip*
+
+ls -al 
 
 wget --quiet ${BASE}/${version}/${FILENAME}
 result=$?
@@ -42,7 +46,7 @@ fi
 rm -rf bin
 mkdir bin
 
-( cd bin; unzip ../${FILENAME} )
+unzip ../${FILENAME}
 result=$?
 if [ ! ${result} == 0 ]; then
     echo "Error: $0[${LINENO}]"
@@ -50,4 +54,4 @@ if [ ! ${result} == 0 ]; then
     exit 1
 fi
 
-rm -rf ${ARTIFACT}-*.zip*
+rm -rf ${FILENAME}
