@@ -16,3 +16,5 @@ RUN apt-get remove -y wget unzip
 
 RUN pwd
 RUN ls -al 
+
+RUN cat /usr/share/nginx/html/index.html
