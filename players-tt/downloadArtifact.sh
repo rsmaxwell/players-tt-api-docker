@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x
-
 ENDPOINT="https://server.rsmaxwell.co.uk/archiva/repository"
 REPOSITORY="releases"
 GROUP="com.rsmaxwell.players"
@@ -32,7 +30,6 @@ FILENAME="${ARTIFACT}-${version}.zip"
 echo "downloading ${FILENAME}"
 (cd /tmp; rm -rf maven-metadata.xml ${ARTIFACT}-*.zip* )
 
-ls -al /tmp
 rm -rf /tmp/${FILENAME}
 
 ( cd /tmp; wget --quiet ${BASE}/${version}/${FILENAME} )
@@ -42,10 +39,6 @@ if [ ! ${result} == 0 ]; then
     echo "result: ${result}"
     exit 1
 fi
-
-ls -al /tmp
-pwd
-ls -al 
 
 unzip /tmp/${FILENAME}
 result=$?
@@ -57,9 +50,5 @@ fi
 
 rm -rf /tmp/${FILENAME}
 
-ls -al /tmp
-pwd
-ls -al 
 
-echo "Success"
 
