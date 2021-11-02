@@ -1,0 +1,52 @@
+version: "3.9"
+services:  
+  players-tt:
+    container_name: players-tt
+    build: ./players-tt
+    image: players-tt
+    volumes:
+      - /home/vagrant/players-tt/config:/players-tt/config
+      - /home/vagrant/players-tt/log:/players-tt/log
+    network_mode: host
+    depends_on:
+      - players-tt-api
+    ports:
+      - 80:80
+      - 443:443
+
+  players-tt-api:
+    container_name: players-tt-api
+    build: ./players-tt-api
+    image: players-tt-api
+    volumes:
+      - /home/vagrant/players-tt-api/config:/players-tt-api/config
+      - /home/vagrant/players-tt-api/log:/players-tt-api/log
+      - /home/vagrant/players-tt-api/dump:/players-tt-api/dump
+    network_mode: host
+    depends_on:
+      - mqtt
+      - database
+
+  mqtt:
+    container_name: mqtt
+    image: eclipse-mosquitto
+    volumes:
+      - /home/vagrant/mosquitto/config:/mosquitto/config
+      - /home/vagrant/mosquitto/data:/mosquitto/data
+      - /home/vagrant/mosquitto/log:/mosquitto/log
+    ports:
+      - 1883:1883
+      - 9001:9001
+
+  database:
+    container_name: database
+    image: postgres
+    env_file:
+      - database/database.env
+    volumes:
+      - database-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+volumes:
+  database-data:
