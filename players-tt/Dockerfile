@@ -26,3 +26,6 @@ ENV MQTT_PATH=""
 RUN ls -al . ./assets ./assets/icons
 
 RUN envsubst < ./assets/env.template.js > ./assets/env.js
+
+
+
