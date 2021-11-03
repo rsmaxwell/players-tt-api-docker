@@ -26,7 +26,7 @@ ENV MQTT_PORT="9001"
 ENV MQTT_PATH=""
 
 
-WORKDIR ${HOME}
+WORKDIR $HOME
 
 # Replace variables in env.js
 RUN find . -name env.template.js
