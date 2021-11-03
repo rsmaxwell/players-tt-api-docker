@@ -22,4 +22,6 @@ ENV MQTT_PORT="9001"
 ENV MQTT_PATH=""
 
 # Replace variables in env.js
+RUN find . -name env.template.js
+RUN find . -name env.js
 RUN envsubst < src/assets/env.template.js > src/assets/env.js
