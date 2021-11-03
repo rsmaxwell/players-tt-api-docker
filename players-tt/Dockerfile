@@ -11,3 +11,15 @@ RUN /tmp/downloadArtifact.sh
 RUN rm /tmp/downloadArtifact.sh
 RUN apt-get remove -y wget unzip
 
+
+# Set environment variables
+ENV API_URL="http://localhost:4201/players-api"
+ENV PRODUCTION="true"
+ENV DEBUG="true"
+ENV MQTT_SERVER="localhost"
+ENV MQTT_PROTOCOL="ws"
+ENV MQTT_PORT="9001"
+ENV MQTT_PATH=""
+
+# Replace variables in env.js
+envsubst < assets/env.template.js > assets/env.js

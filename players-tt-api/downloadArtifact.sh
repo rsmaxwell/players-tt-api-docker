@@ -26,10 +26,9 @@ fi
 
 version="${BASH_REMATCH[1]}"
 FILENAME="${ARTIFACT}-${version}.zip"
-
-echo "downloading ${FILENAME}"
-
 rm -rf maven-metadata.xml ${ARTIFACT}-*.zip*
+
+echo "downloading: ${BASE}/${version}/${FILENAME}"
 
 wget --quiet ${BASE}/${version}/${FILENAME}
 result=$?
@@ -42,7 +41,7 @@ fi
 rm -rf bin
 mkdir bin
 
-( cd bin; unzip ../${FILENAME} )
+( cd bin; unzip -q ../${FILENAME} )
 result=$?
 if [ ! ${result} == 0 ]; then
     echo "Error: $0[${LINENO}]"

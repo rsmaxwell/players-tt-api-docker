@@ -4,15 +4,10 @@ services:
     container_name: players-tt
     build: ./players-tt
     image: players-tt
-    volumes:
-      - /home/vagrant/players-tt/config:/players-tt/config
-      - /home/vagrant/players-tt/log:/players-tt/log
-    network_mode: host
     depends_on:
       - players-tt-api
     ports:
-      - 80:80
-      - 443:443
+      - 8080:80
 
   players-tt-api:
     container_name: players-tt-api
