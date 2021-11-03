@@ -23,8 +23,6 @@ ENV MQTT_PATH=""
 
 
 # Replace variables in env.js
-RUN ls -al . ./assets ./assets/icons
-
 RUN envsubst < ./assets/env.template.js > ./assets/env.js
 
 
