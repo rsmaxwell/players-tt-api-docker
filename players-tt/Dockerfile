@@ -22,4 +22,4 @@ ENV MQTT_PORT="9001"
 ENV MQTT_PATH=""
 
 # Replace variables in env.js
-envsubst < assets/env.template.js > assets/env.js
+RUN envsubst < assets/env.template.js > assets/env.js
