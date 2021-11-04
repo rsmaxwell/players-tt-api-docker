@@ -4,6 +4,13 @@ services:
     container_name: players-tt
     build: ./players-tt
     image: players-tt
+    environment:
+      - PRODUCTION: "true"
+      - MQTT_SERVER: "192.168.5.32"
+      - MQTT_PROTOCOL: "ws"
+      - MQTT_PORT: "9001"
+      - MQTT_PATH: ""
+
     depends_on:
       - players-tt-api
     ports:

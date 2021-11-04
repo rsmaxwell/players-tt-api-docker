@@ -13,7 +13,6 @@ RUN apt-get remove -y wget unzip
 
 
 # Set environment variables
-ENV API_URL="http://localhost:4201/players-api"
 ENV PRODUCTION="true"
 ENV DEBUG="true"
 ENV MQTT_SERVER="localhost"
