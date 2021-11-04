@@ -14,7 +14,6 @@ RUN apt-get remove -y wget unzip
 
 # Set environment variables
 ENV PRODUCTION="true"
-ENV DEBUG="true"
 ENV MQTT_SERVER="localhost"
 ENV MQTT_PROTOCOL="ws"
 ENV MQTT_PORT="9001"
