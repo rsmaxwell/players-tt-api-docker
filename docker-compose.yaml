@@ -20,13 +20,13 @@ services:
     build: ./players-tt-api
     image: players-tt-api
     environment:
-      - PLAYERS_TESTING=true
-      - PLAYERS_ADMIN_FIRST_NAME=admin1
-      - PLAYERS_ADMIN_LAST_NAME=admin2
-      - PLAYERS_ADMIN_KNOWNAS=admin3
-      - PLAYERS_ADMIN_EMAIL=admin@hotmail.com
-      - PLAYERS_ADMIN_PHONE=+44 07894 604311
-      - PLAYERS_ADMIN_PASSWORD=tck66wXyQ4yvNPzeB5fI
+      - PLAYERS_TESTING
+      - PLAYERS_ADMIN_FIRST_NAME
+      - PLAYERS_ADMIN_LAST_NAME
+      - PLAYERS_ADMIN_KNOWNAS
+      - PLAYERS_ADMIN_EMAIL
+      - PLAYERS_ADMIN_PHONE
+      - PLAYERS_ADMIN_PASSWORD
     volumes:
       - /home/vagrant/players-tt-api/config:/players-tt-api/config
       - /home/vagrant/players-tt-api/log:/players-tt-api/log
