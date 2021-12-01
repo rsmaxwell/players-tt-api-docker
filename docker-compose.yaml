@@ -5,12 +5,11 @@ services:
     build: ./players-tt
     image: players-tt
     environment:
-      - PRODUCTION="true"
-      - MQTT_SERVER="192.168.5.32"
-      - MQTT_PROTOCOL="ws"
-      - MQTT_PORT="9001"
-      - MQTT_PATH=""
-
+      - PRODUCTION=true
+      - MQTT_SERVER=alpha
+      - MQTT_PROTOCOL=ws
+      - MQTT_PORT=9001
+      - MQTT_PATH=
     depends_on:
       - players-tt-api
     ports:
@@ -20,6 +19,14 @@ services:
     container_name: players-tt-api
     build: ./players-tt-api
     image: players-tt-api
+    environment:
+      - PLAYERS_TESTING=true
+      - PLAYERS_ADMIN_FIRST_NAME=admin1
+      - PLAYERS_ADMIN_LAST_NAME=admin2
+      - PLAYERS_ADMIN_KNOWNAS=admin3
+      - PLAYERS_ADMIN_EMAIL=admin@hotmail.com
+      - PLAYERS_ADMIN_PHONE=+44 07894 604311
+      - PLAYERS_ADMIN_PASSWORD=tck66wXyQ4yvNPzeB5fI
     volumes:
       - /home/vagrant/players-tt-api/config:/players-tt-api/config
       - /home/vagrant/players-tt-api/log:/players-tt-api/log
